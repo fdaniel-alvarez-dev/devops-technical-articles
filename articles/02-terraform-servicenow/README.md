@@ -1,5 +1,3 @@
----
-
 # Enterprise Terraform: Automating ServiceNow CMDB & AWS Budget Alerts
 
 Aprende a integrar Terraform con la API de ServiceNow para la automatización de CMDB y alertas de presupuesto de AWS.
@@ -87,6 +85,3 @@ resource "servicenow_cmdb_ci" "app_server" {
   environment = aws_instance.app_server.tags.Environment
   cost_center = aws_instance.app_server.tags.CostCenter
 }
-```
-
----
