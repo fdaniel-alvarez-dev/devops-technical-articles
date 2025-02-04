@@ -165,9 +165,10 @@ test('Lambda Function Created', () => {
 Security Considerations
 
 ⚠️ Important: Never commit AWS credentials or sensitive data. Use AWS Secrets Manager or Parameter Store for production deployments.
+
 Additional Resources
 
-[    Official AWS CDK Workshop
-    AWS CDK API Reference
-    CDK Patterns Collection
-    GitHub Repository Template](https://cdkworkshop.com/)
+[Official AWS CDK Workshop](https://cdkworkshop.com/)
+[AWS CDK API Reference](https://docs.aws.amazon.com/cdk/api/latest/)
+[CDK Patterns Collection](https://cdkpatterns.com/)
+[GitHub Repository Template](https://github.com/yourusername/aws-cdk-typescript-starter)
