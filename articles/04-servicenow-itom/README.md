@@ -1,24 +1,24 @@
-ServiceNow ITOM Mastery: Automate CMDB Updates with Python & Event-Driven Architecture (2024 Guide)
+# ServiceNow ITOM Mastery: Automate CMDB Updates with Python & Event-Driven Architecture (2024 Guide)
 
-    Transform your ITOM workflow with automated CMDB synchronization, custom webhooks, and real-time infrastructure tracking
+Transform your ITOM workflow with automated CMDB synchronization, custom webhooks, and real-time infrastructure tracking.
 
-Metadata
+## Metadata
 
-Keywords: servicenow itom automation, cmdb automation python, servicenow webhooks, servicenow python integration, itom best practices 2024, servicenow event driven, cmdb synchronization
-The CMDB Automation Challenge
+**Keywords:** servicenow itom automation, cmdb automation python, servicenow webhooks, servicenow python integration, itom best practices 2024, servicenow event driven, cmdb synchronization
+
+## The CMDB Automation Challenge
 
 Manual CMDB management leads to:
-
-    40% of CMDB records being outdated or incorrect
-    3-5 day delays in incident resolution
-    Compliance failures from inaccurate asset tracking
-    Wasted IT staff hours on manual updates
+- 40% of CMDB records being outdated or incorrect
+- 3-5 day delays in incident resolution
+- Compliance failures from inaccurate asset tracking
+- Wasted IT staff hours on manual updates
 
 Let's automate this with Python and ServiceNow.
-Architecture Overview
 
-mermaid
+## Architecture Overview
 
+```mermaid
 graph TD
     A[Infrastructure Change] -->|Trigger| B[Event Bus]
     B -->|Webhook| C[Python Service]
@@ -29,12 +29,13 @@ graph TD
     G -->|Update| H[CI Relationships]
     H -->|Notify| I[Event Management]
     I -->|Alert| J[Operations Team]
+```
 
-Python Implementation
-Webhook Handler
+## Python Implementation
 
-python
+### Webhook Handler
 
+```python
 # app/handlers/webhook_handler.py
 from flask import Flask, request, jsonify
 from servicenow_client import ServiceNowClient
@@ -85,11 +86,11 @@ def transform_event_to_ci(event_data):
         'company': event_data['organization']
     }
     return ci_data
+```
 
-ServiceNow Client
+### ServiceNow Client
 
-python
-
+```python
 # app/clients/servicenow_client.py
 import requests
 import logging
@@ -162,11 +163,11 @@ class ServiceNowClient:
         response.raise_for_status()
         
         return response.json()['result']
+```
 
-Event Processing Service
+### Event Processing Service
 
-python
-
+```python
 # app/services/event_processor.py
 from typing import Dict, Any
 from datetime import datetime
@@ -226,11 +227,11 @@ class EventProcessor:
             'delete': 'Retired'
         }
         return status_mapping.get(action, 'Unknown')
+```
 
-Unit Tests
+### Unit Tests
 
-python
-
+```python
 # tests/test_servicenow_client.py
 import pytest
 from unittest.mock import Mock, patch
@@ -281,41 +282,38 @@ def test_update_cmdb_existing_ci(snow_client):
     # Assert
     assert result['sys_id'] == 'existing123'
     snow_client._update_ci.assert_called_once_with('existing123', ci_data)
+```
 
-Real-World Implementation: Retail Case Study
+## Real-World Implementation: Retail Case Study
 
-Problem: A global retailer needed to maintain CMDB accuracy for 50,000+ cloud resources across multiple providers.
+**Problem:** A global retailer needed to maintain CMDB accuracy for 50,000+ cloud resources across multiple providers.
 
-Solution: Implemented:
+**Solution:** Implemented:
+- Event-driven CMDB updates
+- Custom webhook handlers
+- Automated relationship mapping
+- Real-time compliance validation
 
-    Event-driven CMDB updates
-    Custom webhook handlers
-    Automated relationship mapping
-    Real-time compliance validation
+**Results:**
+- CMDB accuracy improved to 99.8%
+- Incident resolution time reduced by 65%
+- Automated 98% of CMDB updates
+- Compliance reporting time reduced from days to minutes
 
-Results:
+## Production Deployment Checklist
 
-    CMDB accuracy improved to 99.8%
-    Incident resolution time reduced by 65%
-    Automated 98% of CMDB updates
-    Compliance reporting time reduced from days to minutes
+- Set up webhook endpoints with SSL
+- Configure authentication and rate limiting
+- Implement error handling and retries
+- Set up monitoring and alerting
+- Configure audit logging
+- Implement data validation rules
+- Set up backup procedures
+- Configure high availability
 
-Production Deployment Checklist
+## GitHub Actions Workflow
 
-Set up webhook endpoints with SSL
-Configure authentication and rate limiting
-Implement error handling and retries
-Set up monitoring and alerting
-Configure audit logging
-Implement data validation rules
-Set up backup procedures
-
-    Configure high availability
-
-GitHub Actions Workflow
-
-yaml
-
+```yaml
 name: ServiceNow Integration CI/CD
 on:
   push:
@@ -360,9 +358,11 @@ jobs:
         run: |
           zip -r function.zip app/
           aws lambda update-function-code --function-name snow-webhook-handler --zip-file fileb://function.zip
+```
 
-Repository Structure
+## Repository Structure
 
+```
 ├── app/
 │   ├── handlers/
 │   │   └── webhook_handler.py
@@ -377,22 +377,23 @@ Repository Structure
 │   └── test_event_processor.py
 ├── requirements.txt
 └── README.md
+```
 
-Security Best Practices
+## Security Best Practices
 
 ⚠️ Critical Security Notes:
+- Use API keys or OAuth for ServiceNow authentication
+- Implement webhook signature verification
+- Enable HTTPS for all endpoints
+- Implement rate limiting
+- Log all CMDB changes
+- Validate all input data
+- Use secrets management for credentials
 
-    Use API keys or OAuth for ServiceNow authentication
-    Implement webhook signature verification
-    Enable HTTPS for all endpoints
-    Implement rate limiting
-    Log all CMDB changes
-    Validate all input data
-    Use secrets management for credentials
+## Additional Resources
 
-Additional Resources
+- [ServiceNow REST API Documentation](https://developer.servicenow.com/dev.do#!/reference/api/rome/rest)
+- [Python Requests Library Best Practices](https://docs.python-requests.org/en/master/user/advanced/)
+- [Event-Driven Architecture Patterns](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-event-driven-architectures/welcome.html)
+- [GitHub Repository Template](https://github.com/yourusername/servicenow-itom-automation)
 
-    [ServiceNow REST API Documentation](https://developer.servicenow.com/dev.do#!/reference/api/rome/rest)
-    [Python Requests Library Best Practices](https://docs.python-requests.org/en/master/user/advanced/)
-    [Event-Driven Architecture Patterns](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-event-driven-architectures/welcome.html)
-    [GitHub Repository Template](https://github.com/yourusername/servicenow-itom-automation)
