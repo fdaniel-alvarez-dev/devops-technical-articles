@@ -1,4 +1,4 @@
-# ServiceNow ITOM Mastery: Automate CMDB Updates with Python & Event-Driven Architecture (2024 Guide)
+# ServiceNow ITOM Mastery: Automate CMDB Updates with Python & Event-Driven Architecture
 
 Transform your ITOM workflow with automated CMDB synchronization, custom webhooks, and real-time infrastructure tracking.
 
