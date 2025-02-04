@@ -1,26 +1,30 @@
-AWS CDK Mastery: Deploy Production-Grade Infrastructure as Code with TypeScript in 60 Minutes (2024 Guide)
+Here's the formatted and validated content from the README.md file in the `fdaniel-alvarez-dev/devops-technical-articles` repository:
 
-    Master AWS CDK with battle-tested patterns, save 40% on cloud costs, and automate your entire infrastructure deployment pipeline
+---
 
-Metadata
+# AWS CDK Mastery: Deploy Production-Grade Infrastructure as Code with TypeScript in 60 Minutes (2024 Guide)
 
-Keywords: aws cdk typescript, infrastructure as code aws, serverless cdk patterns, aws cdk best practices 2024, cdk construct library, multi-stack cdk deployment, aws cdk testing
-The Hidden Cost of Manual Infrastructure Management
+Master AWS CDK with battle-tested patterns, save 40% on cloud costs, and automate your entire infrastructure deployment pipeline.
+
+## Metadata
+
+**Keywords:** aws cdk typescript, infrastructure as code aws, serverless cdk patterns, aws cdk best practices 2024, cdk construct library, multi-stack cdk deployment, aws cdk testing
+
+## The Hidden Cost of Manual Infrastructure Management
 
 Are you still clicking through the AWS Console to manage your infrastructure? You're not alone. Enterprise teams waste an average of 30+ hours per month on repetitive infrastructure tasks, leading to:
-
-    Inconsistent environments across dev/staging/prod
-    Security vulnerabilities from manual configuration
-    Skyrocketing AWS costs from unoptimized resources
-    Deployment delays impacting business deliverables
+- Inconsistent environments across dev/staging/prod
+- Security vulnerabilities from manual configuration
+- Skyrocketing AWS costs from unoptimized resources
+- Deployment delays impacting business deliverables
 
 Let's fix that with AWS CDK and TypeScript.
-What is AWS CDK? (A Simple Explanation)
 
-Think of AWS CDK as "Infrastructure as Actual Code" - not just configuration files. Instead of writing hundreds of lines of YAML or JSON, you use familiar TypeScript patterns to define your infrastructure:
+## What is AWS CDK? (A Simple Explanation)
 
-typescript
+Think of AWS CDK as "Infrastructure as Actual Code" - not just configuration files. Instead of writing hundreds of lines of YAML or JSON, you use familiar TypeScript patterns to define your infrastructure.
 
+```typescript
 import * as cdk from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
@@ -44,11 +48,11 @@ export class ServerlessApiStack extends cdk.Stack {
     api.root.addMethod('GET', new apigateway.LambdaIntegration(handler));
   }
 }
+```
 
-Architecture Overview
+## Architecture Overview
 
-mermaid
-
+```mermaid
 graph TD
     A[Developer] -->|git push| B[GitHub Actions]
     B -->|cdk diff| C[AWS CDK CLI]
@@ -56,44 +60,44 @@ graph TD
     D -->|deploy| E[AWS Cloud]
     E -->|create| F[Lambda Function]
     E -->|create| G[API Gateway]
-    F <-->|integrate| G
+    F -->|integrate| G
     G -->|expose| H[HTTPS Endpoint]
+```
 
-Real-World Implementation: FinTech Case Study
+## Real-World Implementation: FinTech Case Study
 
-Problem: A financial services company needed to deploy 200+ microservices across 3 AWS regions with consistent configurations.
+**Problem:** A financial services company needed to deploy 200+ microservices across 3 AWS regions with consistent configurations.
 
-Solution: We implemented a multi-stack CDK application with the following architecture:
+**Solution:** We implemented a multi-stack CDK application with the following architecture:
+- **Base Infrastructure Stack**
+  - VPC configuration
+  - Security groups
+  - IAM roles
+- **Service Stack Factory**
+  - Reusable construct patterns
+  - Environment-specific configurations
+  - Automated testing
 
-    Base Infrastructure Stack
-        VPC configuration
-        Security groups
-        IAM roles
-    Service Stack Factory
-        Reusable construct patterns
-        Environment-specific configurations
-        Automated testing
+**Results:**
+- Deployment time reduced from 2 weeks to 4 hours
+- Infrastructure costs decreased by 45%
+- Zero security incidents in 6 months
 
-Results:
+## Production Deployment Checklist
 
-    Deployment time reduced from 2 weeks to 4 hours
-    Infrastructure costs decreased by 45%
-    Zero security incidents in 6 months
+- Enable AWS CDK version pinning
+- Implement custom constructs for repeated patterns
+- Configure cross-stack references
+- Set up automated testing
+- Enable AWS CloudWatch alarms
+- Implement tagging strategy
+- Configure backup and retention policies
 
-Production Deployment Checklist
+## GitHub Pro Setup
 
-Enable AWS CDK version pinning
-Implement custom constructs for repeated patterns
-Configure cross-stack references
-Set up automated testing
-Enable AWS CloudWatch alarms
-Implement tagging strategy
+### Repository Structure
 
-    Configure backup and retention policies
-
-GitHub Pro Setup
-Repository Structure
-
+```
 ├── bin/
 │   └── app.ts
 ├── lib/
@@ -107,11 +111,11 @@ Repository Structure
 │   └── service-stack.test.ts
 ├── cdk.json
 └── package.json
+```
 
-GitHub Actions Pipeline
+### GitHub Actions Pipeline
 
-yaml
-
+```yaml
 name: CDK Deploy
 on:
   push:
@@ -142,11 +146,11 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+```
 
-Unit Testing Example
+## Unit Testing Example
 
-typescript
-
+```typescript
 import { Template } from 'aws-cdk-lib/assertions';
 import * as cdk from 'aws-cdk-lib';
 import { ServerlessApiStack } from '../lib/serverless-api-stack';
@@ -161,14 +165,17 @@ test('Lambda Function Created', () => {
     Handler: 'hello.handler'
   });
 });
+```
 
-Security Considerations
+## Security Considerations
 
 ⚠️ Important: Never commit AWS credentials or sensitive data. Use AWS Secrets Manager or Parameter Store for production deployments.
 
-Additional Resources
+## Additional Resources
 
-[Official AWS CDK Workshop](https://cdkworkshop.com/)
-[AWS CDK API Reference](https://docs.aws.amazon.com/cdk/api/latest/)
-[CDK Patterns Collection](https://cdkpatterns.com/)
-[GitHub Repository Template](https://github.com/yourusername/aws-cdk-typescript-starter)
+- [Official AWS CDK Workshop](https://cdkworkshop.com/)
+- [AWS CDK API Reference](https://docs.aws.amazon.com/cdk/api/latest/)
+- [CDK Patterns Collection](https://cdkpatterns.com/)
+- [GitHub Repository Template](https://github.com/yourusername/aws-cdk-typescript-starter)
+
+---
