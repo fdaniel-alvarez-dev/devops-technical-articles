@@ -1,7 +1,3 @@
-Here's the formatted and validated content from the README.md file in the `fdaniel-alvarez-dev/devops-technical-articles` repository:
-
----
-
 # AWS CDK Mastery: Deploy Production-Grade Infrastructure as Code with TypeScript in 60 Minutes (2024 Guide)
 
 Master AWS CDK with battle-tested patterns, save 40% on cloud costs, and automate your entire infrastructure deployment pipeline.
@@ -177,5 +173,3 @@ test('Lambda Function Created', () => {
 - [AWS CDK API Reference](https://docs.aws.amazon.com/cdk/api/latest/)
 - [CDK Patterns Collection](https://cdkpatterns.com/)
 - [GitHub Repository Template](https://github.com/yourusername/aws-cdk-typescript-starter)
-
----
