@@ -167,7 +167,7 @@ Security Considerations
 ⚠️ Important: Never commit AWS credentials or sensitive data. Use AWS Secrets Manager or Parameter Store for production deployments.
 Additional Resources
 
-    Official AWS CDK Workshop
+[    Official AWS CDK Workshop
     AWS CDK API Reference
     CDK Patterns Collection
-    GitHub Repository Template
+    GitHub Repository Template](https://cdkworkshop.com/)
