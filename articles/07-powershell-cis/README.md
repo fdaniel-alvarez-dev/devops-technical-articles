@@ -1,24 +1,24 @@
-PowerShell 7 Pro: Automate CIS Benchmark Compliance Checks & Remediation (2024 Complete Guide)
+# PowerShell 7 Pro: Automate CIS Benchmark Compliance Checks & Remediation (2024 Complete Guide)
 
-    Master Windows security automation with PowerShell 7 for CIS benchmark validation, compliance reporting, and automated remediation
+Master Windows security automation with PowerShell 7 for CIS benchmark validation, compliance reporting, and automated remediation.
 
-Metadata
+## Metadata
 
-Keywords: powershell cis automation, windows security automation, cis benchmark powershell, compliance automation windows, powershell 7 security, windows hardening automation, cis remediation scripts
-The Windows Security Challenge
+**Keywords:** powershell cis automation, windows security automation, cis benchmark powershell, compliance automation windows, powershell 7 security, windows hardening automation, cis remediation scripts
+
+## The Windows Security Challenge
 
 Manual security configuration leads to:
-
-    Inconsistent security baselines
-    Compliance audit failures
-    Security vulnerabilities
-    Hours wasted on manual checks
+- Inconsistent security baselines
+- Compliance audit failures
+- Security vulnerabilities
+- Hours wasted on manual checks
 
 Let's automate this with PowerShell 7.
-Architecture Overview
 
-mermaid
+## Architecture Overview
 
+```mermaid
 graph TD
     A[PowerShell Scripts] -->|Execute| B[Security Checks]
     B -->|Validate| C[CIS Benchmarks]
@@ -29,12 +29,13 @@ graph TD
     G -->|Verify| B
     D -->|Alert| H[Teams/Email]
     B -->|Log| I[Event Log]
+```
 
-Implementation
-CIS Benchmark Validator
+## Implementation
 
-powershell
+### CIS Benchmark Validator
 
+```powershell
 # CISBenchmarkValidator.ps1
 using namespace System.Security.Principal
 using namespace System.DirectoryServices.AccountManagement
@@ -127,11 +128,11 @@ class CISBenchmarkValidator {
         }
     }
 }
+```
 
-Automated Remediation
+### Automated Remediation
 
-powershell
-
+```powershell
 # Remediation.ps1
 class CISRemediation {
     [string]$ComputerName
@@ -220,11 +221,11 @@ MaximumPasswordAge = 60
         }
     }
 }
+```
 
-Compliance Reporting
+### Compliance Reporting
 
-powershell
-
+```powershell
 # ComplianceReporting.ps1
 class ComplianceReporter {
     [string]$ReportPath
@@ -345,41 +346,38 @@ INSERT INTO ComplianceResults (
         }
     }
 }
+```
 
-Real-World Implementation: Financial Services Case Study
+## Real-World Implementation: Financial Services Case Study
 
-Problem: A bank needed to ensure CIS benchmark compliance across 10,000+ Windows servers with automated remediation.
+**Problem:** A bank needed to ensure CIS benchmark compliance across 10,000+ Windows servers with automated remediation.
 
-Solution: Implemented:
+**Solution:** Implemented:
+- Automated compliance checks
+- Remediation workflow
+- Centralized reporting
+- Change tracking
 
-    Automated compliance checks
-    Remediation workflow
-    Centralized reporting
-    Change tracking
+**Results:**
+- Compliance rate improved from 65% to 99%
+- Audit preparation time reduced by 90%
+- Zero manual remediation required
+- Real-time compliance visibility
 
-Results:
+## Production Deployment Checklist
 
-    Compliance rate improved from 65% to 99%
-    Audit preparation time reduced by 90%
-    Zero manual remediation required
-    Real-time compliance visibility
+- Test in isolated environment
+- Configure backup strategy
+- Set up logging
+- Configure alerting
+- Implement change tracking
+- Set up reporting database
+- Configure automated remediation
+- Set up audit logging
 
-Production Deployment Checklist
+## Azure DevOps Pipeline
 
-Test in isolated environment
-Configure backup strategy
-Set up logging
-Configure alerting
-Implement change tracking
-Set up reporting database
-Configure automated remediation
-
-    Set up audit logging
-
-Azure DevOps Pipeline
-
-yaml
-
+```yaml
 trigger:
   - main
 
@@ -414,9 +412,11 @@ steps:
   inputs:
     pathToPublish: '$(System.DefaultWorkingDirectory)/output'
     artifactName: 'CISAutomation'
+```
 
-Repository Structure
+## Repository Structure
 
+```
 ├── src/
 │   ├── CISBenchmarkValidator.ps1
 │   ├── Remediation.ps1
@@ -428,21 +428,21 @@ Repository Structure
 │   └── README.md
 └── build/
     └── Build-Module.ps1
+```
 
-Security Best Practices
+## Security Best Practices
 
 ⚠️ Critical Security Notes:
+- Run with minimum required privileges
+- Log all changes
+- Implement change approval
+- Backup before remediation
+- Test in isolation
+- Use secure credentials
+- Enable PowerShell logging
 
-    Run with minimum required privileges
-    Log all changes
-    Implement change approval
-    Backup before remediation
-    Test in isolation
-    Use secure credentials
-    Enable PowerShell logging
+## Additional Resources
 
-Additional Resources
-
-    [CIS Benchmarks Documentation](https://www.cisecurity.org/cis-benchmarks/)
-    [PowerShell Security Documentation](https://docs.microsoft.com/en-us/powershell/scripting/security/security-overview)
-    [Windows Security Best Practices](https://docs.microsoft.com)
+- [CIS Benchmarks Documentation](https://www.cisecurity.org/cis-benchmarks/)
+- [PowerShell Security Documentation](https://docs.microsoft.com/en-us/powershell/scripting/security/security-overview)
+- [Windows Security Best Practices](https://docs.microsoft.com)
